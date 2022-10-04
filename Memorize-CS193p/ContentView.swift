@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        HStack {
+            CardView()
+            CardView()
+            CardView()
+            CardView()
         }
-        .padding()
+        .padding(.horizontal)
+    }
+}
+
+struct CardView: View {
+    var body: some View {
+            ZStack {
+               RoundedRectangle(cornerRadius: 25)
+                    .stroke(lineWidth: 3)
+                    .foregroundColor(.orange)
+                
+                Text("🚂")
+
+            }
     }
 }
 
@@ -24,3 +38,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
