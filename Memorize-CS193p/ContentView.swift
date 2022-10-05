@@ -8,27 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+    var emojis:[String] = ["airplane", "car", "train", "taxi"]
+    @State var emojiCount = 3
     
     var body: some View {
-        HStack {
-            CardView()
-            CardView()
-            CardView()
-            CardView()
+        VStack {
+            HStack {
+                ForEach(emojis[0 ..< emojiCount], id:\.self) { emoji in
+                    CardView(content: emoji)
+                }
+
+            }
+            Button {
+                emojiCount += 1
+            } label: {
+                Text("Add card")
+            }
+
+
         }
         .padding(.horizontal)
+        .foregroundColor(.red)
     }
 }
 
 struct CardView: View {
+    var content: String
+    @State var isFaceup : Bool = true
+    
     var body: some View {
             ZStack {
-               RoundedRectangle(cornerRadius: 25)
-                    .stroke(lineWidth: 3)
-                    .foregroundColor(.orange)
-                
-                Text("🚂")
+                let shape = RoundedRectangle(cornerRadius: 25)
 
+                if isFaceup {
+                    shape.fill().foregroundColor(.white)
+                    shape.stroke(lineWidth: 3)
+                    Text(content).font(.largeTitle)
+                } else {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill()
+                }
+            }
+            .onTapGesture {
+                isFaceup = !isFaceup
             }
     }
 }
@@ -36,6 +58,9 @@ struct CardView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.light)
+        ContentView()
+            .preferredColorScheme(.dark)
     }
 }
 
