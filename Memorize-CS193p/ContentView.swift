@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis:[String] = ["airplane", "car", "train", "taxi"]
-    @State var emojiCount = 3
+    var emojis:[String] = ["a", "b", "c", "d", "e", "f"]
+    @State var emojiCount = 4
     
     var body: some View {
         VStack {
@@ -19,18 +19,50 @@ struct ContentView: View {
                 }
 
             }
-            Button {
-                emojiCount += 1
-            } label: {
-                Text("Add card")
+            
+            Spacer()
+
+            HStack {
+                Spacer()
+                remove
+                Spacer()
+                Text("Shuffle")
+                Spacer()
+                add
+                Spacer()
             }
+            .font(.largeTitle)
+            .padding(.horizontal)
 
 
         }
         .padding(.horizontal)
         .foregroundColor(.red)
     }
+    
+    var remove: some View {
+        Button {
+            if emojiCount > 1 {
+                emojiCount -= 1
+            }
+        } label: {
+            Image(systemName: "minus.circle")
+        }
+        
+    }
+
+    var add: some View {
+        Button {
+            if (emojiCount != emojis.count) {
+                emojiCount += 1
+            }
+        } label: {
+            Image(systemName: "plus.circle")
+        }
+    }
 }
+
+
 
 struct CardView: View {
     var content: String
@@ -59,8 +91,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .preferredColorScheme(.light)
-        ContentView()
-            .preferredColorScheme(.dark)
+
     }
 }
 
