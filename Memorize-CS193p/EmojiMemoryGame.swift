@@ -14,12 +14,12 @@ class EmojiMemoryGame  {
   static  let emojis = ["a", "b", "c", "d", "e", "f","g","h","i","j"]
     
     static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberofPairsOfCards: 4) { pairIndex in
+        MemoryGame<String>(numberofPairsOfCards: 2) { pairIndex in
             emojis[pairIndex]
         }
     }
     
-    private var model: MemoryGame<String> = createMemoryGame()
+    private(set) var model: MemoryGame<String> = createMemoryGame()
  
     
     var cards: Array<MemoryGame<String>.Card> {

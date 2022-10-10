@@ -56,10 +56,10 @@
 		B421C17928EBDB0E00319724 /* Memorize-CS193p */ = {
 			isa = PBXGroup;
 			children = (
-				B421C17A28EBDB0E00319724 /* Memorize_CS193pApp.swift */,
-				B421C17C28EBDB0E00319724 /* ContentView.swift */,
 				B410FB2F28F2DB4800CC6F99 /* MemoryGame.swift */,
 				B410FB3128F2DD7800CC6F99 /* EmojiMemoryGame.swift */,
+				B421C17C28EBDB0E00319724 /* ContentView.swift */,
+				B421C17A28EBDB0E00319724 /* Memorize_CS193pApp.swift */,
 				B421C17E28EBDB0F00319724 /* Assets.xcassets */,
 				B421C18028EBDB0F00319724 /* Memorize_CS193p.entitlements */,
 				B421C18128EBDB0F00319724 /* Preview Content */,
